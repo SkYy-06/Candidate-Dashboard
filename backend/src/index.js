@@ -13,10 +13,7 @@ const __dirname = path.resolve();
 // Middleware
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173", // local frontend
-      "https://candidate-dashboard-tlmo.vercel.app", // deployed frontend
-    ],
+    origin: "*",
     credentials: true,
   })
 );

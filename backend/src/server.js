@@ -1,0 +1,47 @@
+import express from "express";
+import "dotenv/config";
+import cors from "cors";
+import path from "path";
+
+import profileRoutes from "./routes/profile.route.js"; // keep only profile routes
+import connectDB from "./lib/db.js"; //  DB connection
+
+const app = express();
+const PORT = process.env.PORT || 5001;
+
+const __dirname = path.resolve();
+
+// Middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173", // frontend origin
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+// Health check
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
+// Routes
+app.use("/api/profile", profileRoutes);
+
+// Serve frontend in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  connectDB();
+});

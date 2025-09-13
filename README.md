@@ -70,7 +70,7 @@ Start the backend server:
 
 npm run dev
 
-The server will run on http://localhost:5000 with Nodemon for automatic restarts.
+The server will run on http://localhost:5001 with Nodemon for automatic restarts.
 
 2. Frontend Setup
 Navigate to the frontend directory:

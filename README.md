@@ -1,3 +1,7 @@
+Candidate Profile Management Application
+
+This is a full-stack web application designed to manage candidate profiles. It features a RESTful API for creating, viewing, and updating profiles, and a React.js frontend to interact with the API.
+
 📁 Project Architecture
 
 The project is structured into two main parts: the backend API and the frontend client.
@@ -52,22 +56,12 @@ Tailwind CSS: A utility-first CSS framework for rapid and responsive styling.
 Render Deployment: Configured for seamless deployment of both backend API and static frontend.
 
 ⚙️ Local Setup
-
-Follow these steps to set up and run the project on your local machine.
-
 1. Backend Setup
-
-Navigate to the backend directory:
-
 cd backend
-
-
-Install the required Node.js dependencies:
-
 npm install
 
 
-Create a .env file in the backend folder and add your MongoDB connection string:
+Create a .env file and add your MongoDB connection string:
 
 MONGO_URI=your_mongodb_connection_string_here
 
@@ -76,26 +70,12 @@ Start the backend server:
 
 npm run dev
 
-<<<<<<< HEAD
-=======
 
->>>>>>> d67b24e87073c5a8a932b34971d8b4724a76bd5c
 The server will run on http://localhost:5001 with Nodemon for automatic restarts.
 
 2. Frontend Setup
-
-Navigate to the frontend directory:
-
 cd frontend
-
-
-Install the required Node.js dependencies:
-
 npm install
-
-
-Start the frontend development server:
-
 npm run dev
 
 
@@ -103,9 +83,10 @@ The frontend will run on a local development server, typically http://localhost:
 
 🌐 API Documentation
 
-The API endpoints are documented and can be tested using Postman.
+You can test all API endpoints using Postman:
+Postman Collection Link
 
-Endpoints
+Endpoints:
 
 GET /api/profile/:id — Fetches a specific candidate profile by its unique ID.
 
@@ -121,7 +102,7 @@ Push your backend code to a Git repository.
 
 In Render, create a new Web Service and connect your GitHub repo.
 
-Set the environment variable:
+Set environment variable:
 
 MONGO_URI = your_mongodb_connection_string
 
@@ -137,7 +118,6 @@ cd backend && node server.js
 
 
 Deploy → Render will provide your backend URL, e.g.:
-
 https://candidate-dashboard-backend.onrender.com
 
 2. Frontend Deployment
@@ -162,9 +142,7 @@ frontend/dist
 
 
 Deploy → Render will provide your frontend URL, e.g.:
-
 https://candidate-dashboard-frontend.onrender.com
-
 
 Make sure your backend allows CORS requests from the frontend URL.
 
@@ -178,4 +156,4 @@ UI/UX: Frontend is a proof-of-concept; can be enhanced for better user experienc
 
 📄 Resume
 
-You can view my resume here: Aakash Divakar's Resume
+You can view my resume here: Aakash Divakar's Resume(https://drive.google.com/file/d/1MYcHToOZqveY9up3ZSYwY74Lr5JDv1_4/view)

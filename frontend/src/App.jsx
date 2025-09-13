@@ -9,12 +9,14 @@ import {
 import {
   getProfile,
   createProfile,
-  updateProfile,
+  updateProfileAndAddProject,
   getTopSkills,
 } from "./lib/api";
 import WorkPage from "./Pages/WorkPage";
 import ProjectsPage from "./Pages/ProjectPage";
 import SearchPage from "./Pages/SearchPage";
+
+
 
 function Navbar() {
   return (
@@ -169,7 +171,7 @@ function EditProfile({ profile, onSaved }) {
       if (!profile?._id) {
         res = await createProfile(form);
       } else {
-        res = await updateProfile(profile._id, form);
+        res = await updateProfileAndAddProject(profile._id, form);
       }
       onSaved(res.data.data || res.data);
     } catch (err) {

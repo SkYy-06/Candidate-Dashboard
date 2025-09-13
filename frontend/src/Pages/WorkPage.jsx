@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useProfile } from "../hooks/useProfile"; // your existing hook
-import { updateProfile } from "../lib/api";
+import { updateProfileAndAddProject } from "../lib/api";
 
 function WorkForm({ work, onSaved, onCancel }) {
   const [form, setForm] = useState({
@@ -67,7 +67,7 @@ export default function WorkPage() {
     }
 
     try {
-      const res = await updateProfile(profile._id, updatedProfile);
+      const res = await updateProfileAndAddProject(profile._id, updatedProfile);
       setProfile(res.data.data || res.data);
     } catch (err) {
       alert(
@@ -82,7 +82,7 @@ export default function WorkPage() {
     const updatedProfile = { ...profile };
     updatedProfile.work.splice(index, 1);
     try {
-      const res = await updateProfile(profile._id, updatedProfile);
+      const res = await updateProfileAndAddProject(profile._id, updatedProfile);
       setProfile(res.data.data || res.data);
     } catch (err) {
       alert(

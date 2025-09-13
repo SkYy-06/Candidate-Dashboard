@@ -13,11 +13,12 @@ const router = express.Router();
 
 router.post("/", createProfile);
 router.get("/", getProfile);
-router.put("/:id", updateProfileAndAddProject);
+
 
 router.get("/projects", getProjectBySkills);
 router.get("/skills/top", getTopSkills);
 
-router.get("/search", searchQuery);
 
+router.get("/search", searchQuery);
+router.put("/:id", updateProfileAndAddProject);
 export default router;

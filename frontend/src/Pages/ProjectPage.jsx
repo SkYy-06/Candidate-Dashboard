@@ -1,5 +1,7 @@
 import { useProfile } from "../hooks/useProfile";
 import { useState } from "react";
+import { updateProfileAndAddProject } from "../lib/api";
+
 function ProjectsPage() {
   const { profile, setProfile, loading, fetchProfile } = useProfile();
   const [editingIndex, setEditingIndex] = useState(null);
@@ -36,7 +38,7 @@ function ProjectsPage() {
         updatedProjects.push(projectForm);
       }
 
-      const res = await updateProfile(profile._id, {
+      const res = await updateProfileAndAddProject(profile._id, {
         ...profile,
         projects: updatedProjects,
       });
@@ -61,7 +63,7 @@ function ProjectsPage() {
 
     try {
       const updatedProjects = projects.filter((_, i) => i !== idx);
-      const res = await updateProfile(profile._id, {
+      const res = await updateProfileAndAddProject(profile._id, {
         ...profile,
         projects: updatedProjects,
       });
@@ -243,3 +245,4 @@ function ProjectsPage() {
 }
 
 export default ProjectsPage;
+
